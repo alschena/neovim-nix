@@ -90,7 +90,6 @@ with final.pkgs.lib; let
     # language servers, etc.
     lua-language-server
     nixd
-    sonarlint-ls
     ltex-ls
   ];
 in {
