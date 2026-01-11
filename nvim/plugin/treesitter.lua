@@ -3,7 +3,7 @@ if vim.g.did_load_treesitter_plugin then
 end
 vim.g.did_load_treesitter_plugin = true
 
-local configs = require('nvim-treesitter.configs')
+local configs = require('nvim-treesitter')
 vim.g.skip_ts_context_comment_string_module = true
 
 ---@diagnostic disable-next-line: missing-fields
@@ -84,6 +84,15 @@ configs.setup {
       },
     },
   },
+  incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = '<M-o>',
+        node_incremental = '<M-o>',
+        scope_incremental = '<M-p>',
+        node_decremental = '<M-i>',
+      }
+  }
 }
 
 require('treesitter-context').setup {

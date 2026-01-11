@@ -75,6 +75,7 @@ with final.pkgs.lib; let
     # ^ Useful utilities
     # libraries that other plugins depend on
     sqlite-lua
+    rustaceanvim
     plenary-nvim
     nvim-web-devicons
     vim-repeat
@@ -88,7 +89,9 @@ with final.pkgs.lib; let
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
-    nil # nix LSP
+    nixd
+    sonarlint-ls
+    ltex-ls
   ];
 in {
   # This is the neovim derivation

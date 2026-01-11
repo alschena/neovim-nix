@@ -111,12 +111,12 @@ keymap.set('n', '<leader>h-', function()
 end, { silent = true, desc = 'dec window [h]eight' })
 
 -- Close floating windows [Neovim 0.10 and above]
-keymap.set('n', '<leader>fq', function()
+keymap.set('n', '<leader>wq', function()
   vim.cmd('fclose!')
 end, { silent = true, desc = '[f]loating windows: [q]uit/close all' })
 
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
-keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'switch to normal mode' })
+keymap.set('t', '<Esc><Esc><Esc>', '<C-\\><C-n>', { desc = 'switch to normal mode' })
 keymap.set('t', '<C-Esc>', '<Esc>', { desc = 'send Esc to terminal' })
 
 -- Shortcut for expanding to current buffer's directory in command mode
@@ -128,12 +128,12 @@ keymap.set('c', '%%', function()
   end
 end, { expr = true, desc = "expand to current buffer's directory" })
 
-keymap.set('n', '<space>tn', vim.cmd.tabnew, { desc = '[t]ab: [n]ew' })
-keymap.set('n', '<space>tq', vim.cmd.tabclose, { desc = '[t]ab: [q]uit/close' })
+keymap.set('n', '<leader>tn', vim.cmd.tabnew, { desc = '[t]ab: [n]ew' })
+keymap.set('n', '<leader>tq', vim.cmd.tabclose, { desc = '[t]ab: [q]uit/close' })
 
 local severity = diagnostic.severity
 
-keymap.set('n', '<space>e', function()
+keymap.set('n', '<leader>e', function()
   local _, winid = diagnostic.open_float(nil, { scope = 'line' })
   if not winid then
     vim.notify('no diagnostics found', vim.log.levels.INFO)
@@ -179,14 +179,14 @@ local function buf_toggle_diagnostics()
   diagnostic.enable(not diagnostic.is_enabled(filter), filter)
 end
 
-keymap.set('n', '<space>dt', buf_toggle_diagnostics)
+keymap.set('n', '<leader>td', buf_toggle_diagnostics)
 
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch
   vim.opt.spell = not (vim.opt.spell:get())
 end
 
-keymap.set('n', '<leader>S', toggle_spell_check, { noremap = true, silent = true, desc = 'toggle [S]pell' })
+keymap.set('n', '<leader>ts', toggle_spell_check, { noremap = true, silent = true, desc = 'toggle [S]pell' })
 
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
