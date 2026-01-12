@@ -87,6 +87,7 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[t]elescope [b]uffe
 vim.keymap.set('n', '<leader>fS', builtin.lsp_document_symbols, { desc = '[t]elescope lsp [d]ocument symbols' })
 vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[t]elescope [d]iagnostics' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[t]elescope [h]elp' })
+vim.keymap.set('n', '<leader>fm', builtin.git_status, { desc = '[t]elescope [m]odified (git status)' })
 vim.keymap.set( 'n', '<leader>fs', builtin.lsp_dynamic_workspace_symbols, { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' })
 
 telescope.setup {
