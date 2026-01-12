@@ -85,20 +85,16 @@ vim.keymap.set(
 )
 vim.keymap.set('n', '<leader>*', builtin.grep_string, { desc = '[telescope] grep current string [*]' })
 vim.keymap.set('n', '<leader>fg', project_files, { desc = '[t]elescope project files [g]' })
-vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = '[t]elescope quickfix list [c]' })
-vim.keymap.set('n', '<leader>f:', builtin.command_history, { desc = '[t]elescope command history [q]' })
+vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = '[t]elescope [q]uickfix list' })
+vim.keymap.set('n', '<leader>f:', builtin.command_history, { desc = '[t]elescope command history [:]' })
 vim.keymap.set('n', '<leader>fl', builtin.loclist, { desc = '[t]elescope [l]oclist' })
-vim.keymap.set('n', '<leader>f"', builtin.registers, { desc = '[t]elescope [r]egisters' })
+vim.keymap.set('n', '<leader>f"', builtin.registers, { desc = '[t]elescope registers' })
+vim.keymap.set('n', "<leader>f'", builtin.marks, { desc = '[t]elescope marks' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[t]elescope [b]uffers [b]' })
 vim.keymap.set('n', '<leader>fS', builtin.lsp_document_symbols, { desc = '[t]elescope lsp [d]ocument symbols' })
 vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[t]elescope [d]iagnostics' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[t]elescope [h]elp' })
-vim.keymap.set(
-  'n',
-  '<leader>fs',
-  builtin.lsp_dynamic_workspace_symbols,
-  { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' }
-)
+vim.keymap.set( 'n', '<leader>fs', builtin.lsp_dynamic_workspace_symbols, { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' })
 
 telescope.setup {
   defaults = {

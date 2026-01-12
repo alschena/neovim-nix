@@ -79,8 +79,8 @@ configs.setup {
     lsp_interop = {
       enable = true,
       peek_definition_code = {
-        ['df'] = '@function.outer',
-        ['dF'] = '@class.outer',
+        ['<leader>pf'] = '@function.outer',
+        ['<leader>pc'] = '@class.outer',
       },
     },
   },
