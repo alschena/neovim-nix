@@ -93,22 +93,22 @@ keymap.set('n', ']L', vim.cmd.llast, { silent = true, desc = 'last [L]oclist ent
 
 -- Resize vertical splits
 local toIntegral = math.ceil
-keymap.set('n', '<leader>w+', function()
+keymap.set('n', '<leader>ww', function()
   local curWinWidth = api.nvim_win_get_width(0)
   api.nvim_win_set_width(0, toIntegral(curWinWidth * 3 / 2))
-end, { silent = true, desc = 'inc window [w]idth' })
-keymap.set('n', '<leader>w-', function()
+end, { silent = true, desc = '[w]indow [w]ider' })
+keymap.set('n', '<leader>wn', function()
   local curWinWidth = api.nvim_win_get_width(0)
   api.nvim_win_set_width(0, toIntegral(curWinWidth * 2 / 3))
-end, { silent = true, desc = 'dec window [w]idth' })
-keymap.set('n', '<leader>h+', function()
+end, { silent = true, desc = '[w]indow [n]arrower' })
+keymap.set('n', '<leader>wt', function()
   local curWinHeight = api.nvim_win_get_height(0)
   api.nvim_win_set_height(0, toIntegral(curWinHeight * 3 / 2))
-end, { silent = true, desc = 'inc window [h]eight' })
-keymap.set('n', '<leader>h-', function()
+end, { silent = true, desc = '[w]indow [t]aller' })
+keymap.set('n', '<leader>wh', function()
   local curWinHeight = api.nvim_win_get_height(0)
   api.nvim_win_set_height(0, toIntegral(curWinHeight * 2 / 3))
-end, { silent = true, desc = 'dec window [h]eight' })
+end, { silent = true, desc = '[w]indow s[h]orter' })
 
 -- Close floating windows [Neovim 0.10 and above]
 keymap.set('n', '<leader>wq', function()
@@ -179,14 +179,14 @@ local function buf_toggle_diagnostics()
   diagnostic.enable(not diagnostic.is_enabled(filter), filter)
 end
 
-keymap.set('n', '<leader>td', buf_toggle_diagnostics)
+keymap.set('n', '<leader>td', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
 
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch
   vim.opt.spell = not (vim.opt.spell:get())
 end
 
-keymap.set('n', '<leader>ts', toggle_spell_check, { noremap = true, silent = true, desc = 'toggle [S]pell' })
+keymap.set('n', '<leader>ts', toggle_spell_check, { noremap = true, silent = true, desc = '[t]oggle [S]pell' })
 
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
