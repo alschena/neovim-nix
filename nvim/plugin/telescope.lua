@@ -91,6 +91,7 @@ vim.keymap.set('n', '<leader>fl', builtin.loclist, { desc = '[t]elescope [l]ocli
 vim.keymap.set('n', '<leader>f"', builtin.registers, { desc = '[t]elescope [r]egisters' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[t]elescope [b]uffers [b]' })
 vim.keymap.set('n', '<leader>fS', builtin.lsp_document_symbols, { desc = '[t]elescope lsp [d]ocument symbols' })
+vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[t]elescope [d]iagnostics' })
 vim.keymap.set(
   'n',
   '<leader>fs',
