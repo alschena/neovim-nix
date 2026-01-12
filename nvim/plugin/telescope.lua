@@ -68,21 +68,14 @@ local function fuzzy_grep_current_file_type()
   grep_current_file_type(fuzzy_grep)
 end
 
-vim.keymap.set('n', '<leader>fp', function()
-  builtin.find_files()
-end, { desc = '[t]elescope find files - ctrl[p] style' })
+vim.keymap.set('n', '<leader>fp', function() builtin.find_files() end, { desc = '[t]elescope find files - ctrl[p] style' })
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope<CR>', { desc = '[telescope] pickers' })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = '[telescope] old files' })
 vim.keymap.set('n', '<leader>f/', builtin.live_grep, { desc = '[telescope] live grep' })
 vim.keymap.set('n', '<leader>f?', fuzzy_grep, { desc = '[t]elescope [f]uzzy grep' })
-vim.keymap.set('n', '<leader>fgf', fuzzy_grep_current_file_type, { desc = '[telescope] fuzzy grep filetype' })
-vim.keymap.set('n', '<leader>fgF', live_grep_current_file_type, { desc = '[telescope] live grep filetype' })
-vim.keymap.set(
-  'n',
-  '<leader>f*',
-  grep_string_current_file_type,
-  { desc = '[t]elescope grep current string [*] in current filetype' }
-)
+vim.keymap.set('n', '<leader>fe', fuzzy_grep_current_file_type, { desc = '[telescope] fuzzy grep filetype' })
+vim.keymap.set('n', '<leader>fE', live_grep_current_file_type, { desc = '[telescope] live grep filetype' })
+vim.keymap.set( 'n', '<leader>f*', grep_string_current_file_type, { desc = '[t]elescope grep current string [*] in current filetype' })
 vim.keymap.set('n', '<leader>*', builtin.grep_string, { desc = '[telescope] grep current string [*]' })
 vim.keymap.set('n', '<leader>fg', project_files, { desc = '[t]elescope project files [g]' })
 vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = '[t]elescope [q]uickfix list' })
