@@ -1,1 +1,0 @@
-vim.lsp.start({'sonarlint'})
