@@ -75,8 +75,6 @@ with final.pkgs.lib; let
     # ^ Useful utilities
     # libraries that other plugins depend on
     sqlite-lua
-    sonarlint-nvim
-    rustaceanvim
     plenary-nvim
     nvim-web-devicons
     vim-repeat
@@ -85,6 +83,10 @@ with final.pkgs.lib; let
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
+    # Linting
+    sonarlint-nvim
+    # Rust
+    rustaceanvim
   ];
 
   extraPackages = with pkgs; [
