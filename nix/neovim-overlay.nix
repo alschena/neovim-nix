@@ -96,6 +96,7 @@ with final.pkgs.lib; let
     ltex-ls
     sonarlint-ls
     ty
+    ruff
   ];
 in {
   # This is the neovim derivation
