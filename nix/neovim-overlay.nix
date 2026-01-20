@@ -91,17 +91,24 @@ let
     # Rust
     rustaceanvim
     # Java
-    nvim-java
+    nvim-jdtls
   ];
 
   extraPackages = with pkgs; [
     # language servers, etc.
-    lua-language-server
-    nixd
+    # grammar
     ltex-ls
+    # linter
     sonarlint-ls
+    # lua
+    lua-language-server
+    # nix
+    nixd
+    # python
     ty
     ruff
+    # java
+    jdt-language-server
   ];
 in {
   # This is the neovim derivation

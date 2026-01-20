@@ -93,22 +93,22 @@ keymap.set('n', ']L', vim.cmd.llast, { silent = true, desc = 'last [L]oclist ent
 
 -- Resize vertical splits
 local toIntegral = math.ceil
-keymap.set('n', '<leader>ww', function()
+keymap.set('n', '<leader>w<Right>', function()
   local curWinWidth = api.nvim_win_get_width(0)
   api.nvim_win_set_width(0, toIntegral(curWinWidth * 3 / 2))
-end, { silent = true, desc = '[w]indow [w]ider' })
-keymap.set('n', '<leader>wn', function()
+end, { silent = true, desc = 'window wider' })
+keymap.set('n', '<leader>w<Left>', function()
   local curWinWidth = api.nvim_win_get_width(0)
   api.nvim_win_set_width(0, toIntegral(curWinWidth * 2 / 3))
-end, { silent = true, desc = '[w]indow [n]arrower' })
-keymap.set('n', '<leader>wt', function()
+end, { silent = true, desc = 'window narrower' })
+keymap.set('n', '<leader>w<Down>', function()
   local curWinHeight = api.nvim_win_get_height(0)
   api.nvim_win_set_height(0, toIntegral(curWinHeight * 3 / 2))
-end, { silent = true, desc = '[w]indow [t]aller' })
-keymap.set('n', '<leader>wh', function()
+end, { silent = true, desc = 'window taller' })
+keymap.set('n', '<leader>w<Up>', function()
   local curWinHeight = api.nvim_win_get_height(0)
   api.nvim_win_set_height(0, toIntegral(curWinHeight * 2 / 3))
-end, { silent = true, desc = '[w]indow s[h]orter' })
+end, { silent = true, desc = 'window shorter' })
 
 -- Close floating windows [Neovim 0.10 and above]
 keymap.set('n', '<leader>wq', function()
