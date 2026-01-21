@@ -10,7 +10,7 @@ vim.keymap.set(
   "n",
   ",c",
   require('jdtls').compile,
-  { silent = true, buffer = bufnr, desc = "organize imports" }
+  { silent = true, buffer = bufnr, desc = "compile" }
 )
 vim.keymap.set(
   "n",
