@@ -141,35 +141,41 @@ keymap.set('n', '<leader>e', function()
   end
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
 end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
-keymap.set('n', '[d', diagnostic.goto_prev, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
-keymap.set('n', ']d', diagnostic.goto_next, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
+keymap.set('n', '[d', function () diagnostic.jump { count = - 1} end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
+keymap.set('n', ']d', function () diagnostic.jump { count = 1 } end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
-  diagnostic.goto_prev {
+  diagnostic.jump {
+    count = -1,
     severity = severity.ERROR,
   }
 end, { noremap = true, silent = true, desc = 'previous [e]rror diagnostic' })
 keymap.set('n', ']e', function()
-  diagnostic.goto_next {
+  diagnostic.jump {
+    count = 1,
     severity = severity.ERROR,
   }
 end, { noremap = true, silent = true, desc = 'next [e]rror diagnostic' })
 keymap.set('n', '[w', function()
-  diagnostic.goto_prev {
+  diagnostic.jump {
+    count = -1,
     severity = severity.WARN,
   }
 end, { noremap = true, silent = true, desc = 'previous [w]arning diagnostic' })
 keymap.set('n', ']w', function()
-  diagnostic.goto_next {
+  diagnostic.jump {
+    count = 1,
     severity = severity.WARN,
   }
 end, { noremap = true, silent = true, desc = 'next [w]arning diagnostic' })
 keymap.set('n', '[h', function()
-  diagnostic.goto_prev {
+  diagnostic.jump {
+    count = -1,
     severity = severity.HINT,
   }
 end, { noremap = true, silent = true, desc = 'previous [h]int diagnostic' })
 keymap.set('n', ']h', function()
-  diagnostic.goto_next {
+  diagnostic.jump {
+    count = 1,
     severity = severity.HINT,
   }
 end, { noremap = true, silent = true, desc = 'next [h]int diagnostic' })
@@ -180,6 +186,12 @@ local function buf_toggle_diagnostics()
 end
 
 keymap.set('n', '<leader>td', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
+keymap.set('n', ',~d', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
+
+keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
+keymap.set('n', ',j', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
+keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
+keymap.set('n', ',J', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
 
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch

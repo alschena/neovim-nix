@@ -112,7 +112,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', '<leader>S', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace [s]ymbol'))
     keymap.set('n', ',S', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace [s]ymbol'))
 
-    keymap.set('n', '<leader>d', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
+    keymap.set('n', '<leader>s', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
     keymap.set('n', ',s', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
 
     keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, desc('[lsp] code action'))
