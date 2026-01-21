@@ -74,33 +74,70 @@ vim.api.nvim_create_autocmd('LspAttach', {
       return { noremap = true, silent = true, buffer = bufnr, desc = description }
     end
     keymap.set('n', 'gD', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
+    keymap.set('n', ',D', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
+
     keymap.set('n', 'gd', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
+    keymap.set('n', ',d', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
+
     keymap.set('n', 'gt', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
+    keymap.set('n', ',t', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
+
     keymap.set('n', 'K', vim.lsp.buf.hover, desc('[lsp] hover'))
+    keymap.set('n', ',k', vim.lsp.buf.hover, desc('[lsp] hover'))
+
     keymap.set('n', '<leader>pd', peek_definition, desc('lsp [p]eek [d]efinition'))
+    keymap.set('n', ',pd', peek_definition, desc('lsp [p]eek [d]efinition'))
+
     keymap.set('n', '<leader>pt', peek_type_definition, desc('lsp [p]eek [t]ype definition'))
+    keymap.set('n', ',pt', peek_type_definition, desc('lsp [p]eek [t]ype definition'))
+
     keymap.set('n', 'gi', vim.lsp.buf.implementation, desc('lsp [g]o to [i]mplementation'))
+    keymap.set('n', ',i', vim.lsp.buf.implementation, desc('lsp [g]o to [i]mplementation'))
+
     keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
+    keymap.set('n', ',K', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
+
     keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, desc('lsp add [w]orksp[a]ce folder'))
+    keymap.set('n', ',wa', vim.lsp.buf.add_workspace_folder, desc('lsp add [w]orksp[a]ce folder'))
+
     keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, desc('lsp [w]orkspace folder [r]emove'))
-    keymap.set('n', '<leader>wl', function()
-      vim.print(vim.lsp.buf.list_workspace_folders())
-    end, desc('[lsp] [w]orkspace folders [l]ist'))
+    keymap.set('n', ',wr', vim.lsp.buf.remove_workspace_folder, desc('lsp [w]orkspace folder [r]emove'))
+
+    keymap.set('n', '<leader>wl', function() vim.print(vim.lsp.buf.list_workspace_folders()) end, desc('[lsp] [w]orkspace folders [l]ist'))
+    keymap.set('n', ',wl', function() vim.print(vim.lsp.buf.list_workspace_folders()) end, desc('[lsp] [w]orkspace folders [l]ist'))
+
     keymap.set('n', '<leader>r', vim.lsp.buf.rename, desc('lsp [r]e[n]ame'))
-    keymap.set('n', '<leader>ws', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace [s]ymbol'))
+    keymap.set('n', ',r', vim.lsp.buf.rename, desc('lsp [r]e[n]ame'))
+
+    keymap.set('n', '<leader>S', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace [s]ymbol'))
+    keymap.set('n', ',S', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace [s]ymbol'))
+
     keymap.set('n', '<leader>d', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
+    keymap.set('n', ',s', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
+
     keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, desc('[lsp] code action'))
+    keymap.set('n', ',a', vim.lsp.buf.code_action, desc('[lsp] code action'))
+
     keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
+    keymap.set('n', ',l', vim.lsp.codelens.run, desc('[lsp] run code lens'))
+
     keymap.set('n', 'gr', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))
+    keymap.set('n', ',f', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))
+
     keymap.set('n', '=', function()
       vim.lsp.buf.format { async = true }
     end, desc('[lsp] [f]ormat buffer'))
+    keymap.set('n', ',=', function()
+      vim.lsp.buf.format { async = true }
+    end, desc('[lsp] [f]ormat buffer'))
+
     if client and client.server_capabilities.inlayHintProvider then
       local toggle_inline_hints = function()
         local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }
         vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
       end
       keymap.set('n', '<leader>th', toggle_inline_hints , desc('lsp [t]oggle inlay [h]ints'))
+      keymap.set('n', ',~h', toggle_inline_hints , desc('lsp [t]oggle inlay [h]ints'))
     end
 
     -- Auto-refresh code lenses

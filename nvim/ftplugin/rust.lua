@@ -11,7 +11,21 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
+  ",a",
+  function() vim.cmd.RustLsp('codeAction') end,
+  { silent = true, buffer = bufnr }
+)
+vim.keymap.set(
+  "n",
   "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+  function()
+    vim.cmd.RustLsp({'hover', 'actions'})
+  end,
+  { silent = true, buffer = bufnr }
+)
+vim.keymap.set(
+  "n",
+  ",k",
   function()
     vim.cmd.RustLsp({'hover', 'actions'})
   end,
