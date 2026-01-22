@@ -74,13 +74,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       return { noremap = true, silent = true, buffer = bufnr, desc = description }
     end
     keymap.set('n', 'gD', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
-    keymap.set('n', ',D', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
+    keymap.set('n', ',J', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
 
     keymap.set('n', 'gd', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
-    keymap.set('n', ',d', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
+    keymap.set('n', ',j', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
 
     keymap.set('n', 'gt', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
-    keymap.set('n', ',t', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
+    keymap.set('n', ',y', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
 
     keymap.set('n', 'K', vim.lsp.buf.hover, desc('[lsp] hover'))
     keymap.set('n', ',k', vim.lsp.buf.hover, desc('[lsp] hover'))
@@ -116,10 +116,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', ',s', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
 
     keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, desc('[lsp] code action'))
-    keymap.set('n', ',a', vim.lsp.buf.code_action, desc('[lsp] code action'))
+    keymap.set('n', ',xa', vim.lsp.buf.code_action, desc('[lsp] code action'))
 
     keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
-    keymap.set('n', ',l', vim.lsp.codelens.run, desc('[lsp] run code lens'))
+    keymap.set('n', ',xl', vim.lsp.codelens.run, desc('[lsp] run code lens'))
 
     keymap.set('n', 'gr', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))
     keymap.set('n', ',f', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))

@@ -7,3 +7,6 @@ vim.g.did_load_plugins_plugin = true
 -- even with default configs
 
 require('nvim-surround').setup()
+
+require('oil').setup()
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

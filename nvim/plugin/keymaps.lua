@@ -189,16 +189,20 @@ keymap.set('n', '<leader>td', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]
 keymap.set('n', ',~d', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
 
 keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
-keymap.set('n', ',j', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
+keymap.set('n', ',d', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
 keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
-keymap.set('n', ',J', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
+keymap.set('n', ',D', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
 
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch
   vim.opt.spell = not (vim.opt.spell:get())
 end
 
-keymap.set('n', '<leader>ts', toggle_spell_check, { noremap = true, silent = true, desc = '[t]oggle [S]pell' })
+keymap.set('n', '<leader>ts', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle spell' })
+keymap.set('n', ',~s', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle spell' })
+keymap.set('n', ',x', '<Nop>', { noremap = true, silent = true, desc = '+Fix' })
+keymap.set('n', ',xs', 'z=', { noremap = true, silent = true, desc = 'Fix syntax' })
+keymap.set('n', ',~z', 'zi', { noremap = true, silent = true, desc = 'Toggle folds' })
 
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
