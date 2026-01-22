@@ -58,12 +58,13 @@ select_textobject_keymaps("iP", "@parameter.inner")
 select_keymaps("as", "@local.scope", "locals")
 
 -- Swap keybindings
-vim.keymap.set("n", "<leader>a", function()
+vim.keymap.set("n", ",F", "<Nop>", { desc = "+Flip" })
+vim.keymap.set("n", ",Fn", function()
   require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
-end)
-vim.keymap.set("n", "<leader>A", function()
+end, { desc = "Parameter next" })
+vim.keymap.set("n", ",Fp", function()
   require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
-end)
+end, { desc = "Parameter previous" })
 
 -- Move keybindings
 -- keymaps

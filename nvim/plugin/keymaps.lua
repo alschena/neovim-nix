@@ -128,19 +128,23 @@ keymap.set('c', '%%', function()
   end
 end, { expr = true, desc = "expand to current buffer's directory" })
 
-keymap.set('n', '<leader>tn', vim.cmd.tabnew, { desc = '[t]ab: [n]ew' })
-keymap.set('n', '<leader>tq', vim.cmd.tabclose, { desc = '[t]ab: [q]uit/close' })
+keymap.set('n', '<leader>n', vim.cmd.tabnew, { desc = 'New tab' })
+keymap.set('n', '<leader>q', vim.cmd.bdelete, { desc = 'Delete buffer' })
+keymap.set('n', '<leader>Q', vim.cmd.tabclose, { desc = 'Close tab' })
 
 local severity = diagnostic.severity
 
-keymap.set('n', '<leader>e', function()
+local diagnostic_floating_window = function()
   local _, winid = diagnostic.open_float(nil, { scope = 'line' })
   if not winid then
     vim.notify('no diagnostics found', vim.log.levels.INFO)
     return
   end
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
-end, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+end
+keymap.set('n', '<leader>e', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+keymap.set('n', ',l', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+
 keymap.set('n', '[d', function () diagnostic.jump { count = - 1} end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
 keymap.set('n', ']d', function () diagnostic.jump { count = 1 } end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
@@ -185,12 +189,8 @@ local function buf_toggle_diagnostics()
   diagnostic.enable(not diagnostic.is_enabled(filter), filter)
 end
 
-keymap.set('n', '<leader>td', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
 keymap.set('n', ',~d', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
-
-keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
 keymap.set('n', ',d', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
-keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
 keymap.set('n', ',D', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
 
 local function toggle_spell_check()
@@ -198,7 +198,6 @@ local function toggle_spell_check()
   vim.opt.spell = not (vim.opt.spell:get())
 end
 
-keymap.set('n', '<leader>ts', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle spell' })
 keymap.set('n', ',~s', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle spell' })
 keymap.set('n', ',x', '<Nop>', { noremap = true, silent = true, desc = '+Fix' })
 keymap.set('n', ',xs', 'z=', { noremap = true, silent = true, desc = 'Fix syntax' })
