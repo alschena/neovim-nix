@@ -34,7 +34,20 @@ local function toggle_qf_list()
   end
 end
 
-keymap.set('n', '<C-c>', toggle_qf_list, { desc = 'toggle quickfix list' })
+-- Toggle the location list (only opens if it is populated)
+local function toggle_loc_list()
+  local win_n = vim.api.nvim_get_current_win()
+  if fn.win_gettype(win_n) == 'loclist' then
+    vim.cmd.lclose()
+    return
+  end
+  if not vim.tbl_isempty(vim.fn.getloclist(win_n)) then
+    vim.cmd.lopen()
+  end
+end
+
+keymap.set('n', '<leader>c', toggle_qf_list, { desc = 'toggle quickfix list' })
+keymap.set('n', '<leader>l', toggle_loc_list, { desc = 'toggle location list' })
 
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
@@ -142,7 +155,6 @@ local diagnostic_floating_window = function()
   end
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
 end
-keymap.set('n', '<leader>e', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
 keymap.set('n', ',df', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
 
 keymap.set('n', '[d', function () diagnostic.jump { count = - 1} end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
