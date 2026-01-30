@@ -1,33 +1,22 @@
 -- From rustaceanvim
 local bufnr = vim.api.nvim_get_current_buf()
-vim.keymap.set(
-  "n",
-  "<M-CR>",
-  function()
-    vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
-    -- or vim.lsp.buf.codeAction() if you don't want grouping.
-  end,
-  { silent = true, buffer = bufnr }
-)
-vim.keymap.set(
-  "n",
-  ",a",
-  function() vim.cmd.RustLsp('codeAction') end,
-  { silent = true, buffer = bufnr }
-)
-vim.keymap.set(
-  "n",
-  "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
-  function()
-    vim.cmd.RustLsp({'hover', 'actions'})
-  end,
-  { silent = true, buffer = bufnr }
-)
-vim.keymap.set(
-  "n",
-  ",k",
-  function()
-    vim.cmd.RustLsp({'hover', 'actions'})
-  end,
-  { silent = true, buffer = bufnr }
-)
+local function desc(description)
+  return { noremap = true, silent = true, buffer = bufnr, desc = description }
+end
+
+vim.keymap.set('n', ',bxx', function() vim.cmd.RustLsp('debuggables') end, desc('[r]ust: [dd]ebuggables'))
+vim.keymap.set('n', ',bxl', function() vim.cmd.RustLsp { 'debuggables', bang = true } end, desc('[r]ust: run [d]ebuggables [l]ast'))
+vim.keymap.set('n', ',cx', function() vim.cmd.RustLsp('runnables') end, desc('[r]ust: [r]unnables'))
+vim.keymap.set('n', ',cl', function() vim.cmd.RustLsp { 'runnables', bang = true } end, desc('[r]ust: [r]unnables [l]ast'))
+vim.keymap.set('n', ',tx', function() vim.cmd.RustLsp('testables') end, desc('[r]ust: [t]es[t]ables'))
+vim.keymap.set('n', ',tl', function() vim.cmd.RustLsp { 'testables', bang = true } end, desc('[r]ust: run [t]estables [l]ast'))
+vim.keymap.set('n', ',em', function() vim.cmd.RustLsp('expandMacro') end, desc('[r]ust: [m]acro [e]xpand'))
+vim.keymap.set('n', ',mk', function() vim.cmd.RustLsp { 'moveItem', 'up' } end, desc('[r]ust: move item up [k]'))
+vim.keymap.set('n', ',mj', function() vim.cmd.RustLsp { 'moveItem', 'down' } end, desc('[r]ust: move item down [j]'))
+vim.keymap.set('v', ',k', function() vim.cmd.RustLsp { 'hover', 'range' } end, desc('rust: hover range'))
+vim.keymap.set('n', ',ee', function() vim.cmd.RustLsp('explainError') end, desc('[r]ust: [e]xplain error'))
+vim.keymap.set('n', ',er', function() vim.cmd.RustLsp('renderDiagnostic') end, desc('rust: [r]ender [d]iagnostic'))
+vim.keymap.set('n', ',ed', function() vim.cmd.RustLsp('relatedDiagnostics') end, desc('rust: [g]o to related [d]iagnostics'))
+vim.keymap.set('n', ',gc', function() vim.cmd.RustLsp('openCargo') end, desc('rust: [g]o to [c]argo.toml'))
+vim.keymap.set('n', ',gp', function() vim.cmd.RustLsp('parentModule') end, desc('rust: [g]o to [p]arent module'))
+vim.keymap.set('n', 'J', function() vim.cmd.RustLsp('joinLines') end, desc('rust: join lines'))

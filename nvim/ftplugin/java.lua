@@ -38,12 +38,6 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  ",t",
-  "<Nop>",
-  { silent = true, buffer = bufnr, desc = "+Test" }
-)
-vim.keymap.set(
-  "n",
   ",tc",
   require('jdtls').test_class,
   { silent = true, buffer = bufnr, desc = "test class" }
