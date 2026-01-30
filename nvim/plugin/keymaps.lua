@@ -143,7 +143,7 @@ local diagnostic_floating_window = function()
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
 end
 keymap.set('n', '<leader>e', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
-keymap.set('n', ',l', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+keymap.set('n', ',df', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
 
 keymap.set('n', '[d', function () diagnostic.jump { count = - 1} end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
 keymap.set('n', ']d', function () diagnostic.jump { count = 1 } end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
@@ -190,8 +190,8 @@ local function buf_toggle_diagnostics()
 end
 
 keymap.set('n', ',~d', buf_toggle_diagnostics, { desc = "[t]oggle buf [d]iagnostics" } )
-keymap.set('n', ',d', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
-keymap.set('n', ',D', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
+keymap.set('n', ',dl', vim.diagnostic.setloclist, { desc = "Set buffers diagnostics to location list" })
+keymap.set('n', ',dk', vim.diagnostic.setqflist, { desc = "Set all diagnostics to quickfix list" })
 
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch

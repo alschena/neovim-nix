@@ -14,25 +14,19 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  ",e",
-  "<Nop>",
-  { silent = true, buffer = bufnr, desc = "+Extract" }
-)
-vim.keymap.set(
-  "n",
-  ",ev",
+  ",xv",
   require('jdtls').extract_variable,
   { silent = true, buffer = bufnr, desc = "extract variable" }
 )
 vim.keymap.set(
   "n",
-  ",ec",
+  ",xc",
   require('jdtls').extract_constant,
   { silent = true, buffer = bufnr, desc = "extract constant" }
 )
 vim.keymap.set(
   "n",
-  ",em",
+  ",xm",
   require('jdtls').extract_method,
   { silent = true, buffer = bufnr, desc = "extract method" }
 )
