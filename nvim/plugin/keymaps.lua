@@ -105,26 +105,8 @@ keymap.set('n', '[L', vim.cmd.lfirst, { silent = true, desc = 'first [L]oclist e
 keymap.set('n', ']L', vim.cmd.llast, { silent = true, desc = 'last [L]oclist entry' })
 
 -- Resize vertical splits
-local toIntegral = math.ceil
-keymap.set('n', '<leader>w<Right>', function()
-  local curWinWidth = api.nvim_win_get_width(0)
-  api.nvim_win_set_width(0, toIntegral(curWinWidth * 3 / 2))
-end, { silent = true, desc = 'window wider' })
-keymap.set('n', '<leader>w<Left>', function()
-  local curWinWidth = api.nvim_win_get_width(0)
-  api.nvim_win_set_width(0, toIntegral(curWinWidth * 2 / 3))
-end, { silent = true, desc = 'window narrower' })
-keymap.set('n', '<leader>w<Down>', function()
-  local curWinHeight = api.nvim_win_get_height(0)
-  api.nvim_win_set_height(0, toIntegral(curWinHeight * 3 / 2))
-end, { silent = true, desc = 'window taller' })
-keymap.set('n', '<leader>w<Up>', function()
-  local curWinHeight = api.nvim_win_get_height(0)
-  api.nvim_win_set_height(0, toIntegral(curWinHeight * 2 / 3))
-end, { silent = true, desc = 'window shorter' })
-
--- Close floating windows [Neovim 0.10 and above]
-keymap.set('n', '<leader>wq', function()
+keymap.set('n', '<leader>w', '<C-w>', { desc = '+Window (alias <C-w>)' })
+keymap.set('n', '<leader>wQ', function()
   vim.cmd('fclose!')
 end, { silent = true, desc = '[f]loating windows: [q]uit/close all' })
 
