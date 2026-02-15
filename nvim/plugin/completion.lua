@@ -105,7 +105,6 @@ cmp.setup {
     -- The insertion order influences the priority of the sources
     { name = 'nvim_lsp', keyword_length = 3 },
     { name = 'nvim_lsp_signature_help', keyword_length = 3 },
-    { name = 'buffer' },
     { name = 'path' },
   },
   enabled = function()
@@ -130,7 +129,6 @@ cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'nvim_lsp_document_symbol', keyword_length = 3 },
-    { name = 'buffer' },
     { name = 'cmdline_history' },
   },
   view = {
