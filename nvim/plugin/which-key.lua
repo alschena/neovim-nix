@@ -4,6 +4,7 @@ require('which-key').setup {
 }
 vim.keymap.set('n', '<leader>f', '<Nop>', { desc = '+Find' })
 vim.keymap.set('n', '<leader>g', '<Nop>', { desc = '+Git' })
+vim.keymap.set('n', '<leader>g~', '<Nop>', { desc = '+Toggle' })
 vim.keymap.set('n', ',', '<Nop>', { desc = '+Language' })
 vim.keymap.set('n', ',~', '<Nop>', { desc = '+toggle' })
 vim.keymap.set('n', ',p', '<Nop>', { desc = '+Peek' })
