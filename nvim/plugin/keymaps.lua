@@ -192,6 +192,9 @@ local function toggle_spell_check()
   vim.opt.spell = not (vim.opt.spell:get())
 end
 
+keymap.set({'n', 'v'}, ', ', 'gc', { remap = true, desc = 'comment' })
+keymap.set({'n', 'v'}, ',  ', 'gcc', { remap = true, desc = 'comment line' })
+
 keymap.set('n', ',~s', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle spell' })
 keymap.set('n', ',x', '<Nop>', { noremap = true, silent = true, desc = '+Fix' })
 keymap.set('n', ',xs', 'z=', { noremap = true, silent = true, desc = 'Fix syntax' })
