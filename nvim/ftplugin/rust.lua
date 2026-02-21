@@ -1,7 +1,7 @@
 -- From rustaceanvim
 local bufnr = vim.api.nvim_get_current_buf()
 local function desc(description)
-  return { noremap = true, silent = true, buffer = bufnr, desc = description }
+  return { silent = true, buffer = bufnr, desc = description }
 end
 
 vim.keymap.set('n', ',bxx', function() vim.cmd.RustLsp('debuggables') end, desc('[r]ust: [dd]ebuggables'))

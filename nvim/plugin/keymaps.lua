@@ -137,46 +137,46 @@ local diagnostic_floating_window = function()
   end
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
 end
-keymap.set('n', ',df', diagnostic_floating_window, { noremap = true, silent = true, desc = 'diagnostics floating window' })
+keymap.set('n', ',df', diagnostic_floating_window, { silent = true, desc = 'diagnostics floating window' })
 
-keymap.set('n', '[d', function () diagnostic.jump { count = - 1} end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
-keymap.set('n', ']d', function () diagnostic.jump { count = 1 } end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
+keymap.set('n', '[d', function () diagnostic.jump { count = - 1} end, { silent = true, desc = 'previous [d]iagnostic' })
+keymap.set('n', ']d', function () diagnostic.jump { count = 1 } end, { silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
   diagnostic.jump {
     count = -1,
     severity = severity.ERROR,
   }
-end, { noremap = true, silent = true, desc = 'previous [e]rror diagnostic' })
+end, { silent = true, desc = 'previous [e]rror diagnostic' })
 keymap.set('n', ']e', function()
   diagnostic.jump {
     count = 1,
     severity = severity.ERROR,
   }
-end, { noremap = true, silent = true, desc = 'next [e]rror diagnostic' })
+end, { silent = true, desc = 'next [e]rror diagnostic' })
 keymap.set('n', '[w', function()
   diagnostic.jump {
     count = -1,
     severity = severity.WARN,
   }
-end, { noremap = true, silent = true, desc = 'previous [w]arning diagnostic' })
+end, { silent = true, desc = 'previous [w]arning diagnostic' })
 keymap.set('n', ']w', function()
   diagnostic.jump {
     count = 1,
     severity = severity.WARN,
   }
-end, { noremap = true, silent = true, desc = 'next [w]arning diagnostic' })
+end, { silent = true, desc = 'next [w]arning diagnostic' })
 keymap.set('n', '[h', function()
   diagnostic.jump {
     count = -1,
     severity = severity.HINT,
   }
-end, { noremap = true, silent = true, desc = 'previous [h]int diagnostic' })
+end, { silent = true, desc = 'previous [h]int diagnostic' })
 keymap.set('n', ']h', function()
   diagnostic.jump {
     count = 1,
     severity = severity.HINT,
   }
-end, { noremap = true, silent = true, desc = 'next [h]int diagnostic' })
+end, { silent = true, desc = 'next [h]int diagnostic' })
 
 local function buf_toggle_diagnostics()
   local filter = { bufnr = api.nvim_get_current_buf() }
@@ -195,10 +195,10 @@ end
 keymap.set({'n', 'v'}, ', ', 'gc', { remap = true, desc = 'comment' })
 keymap.set({'n', 'v'}, ',  ', 'gcc', { remap = true, desc = 'comment line' })
 
-keymap.set('n', ',~s', toggle_spell_check, { noremap = true, silent = true, desc = 'Toggle spell' })
-keymap.set('n', ',x', '<Nop>', { noremap = true, silent = true, desc = '+Fix' })
-keymap.set('n', ',xs', 'z=', { noremap = true, silent = true, desc = 'Fix syntax' })
-keymap.set('n', ',~z', 'zi', { noremap = true, silent = true, desc = 'Toggle folds' })
+keymap.set('n', ',~s', toggle_spell_check, { silent = true, desc = 'Toggle spell' })
+keymap.set('n', ',x', '<Nop>', { silent = true, desc = '+Fix' })
+keymap.set('n', ',xs', 'z=', { silent = true, desc = 'Fix syntax' })
+keymap.set('n', ',~z', 'zi', { silent = true, desc = 'Toggle folds' })
 
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
