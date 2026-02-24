@@ -193,7 +193,6 @@ local function toggle_spell_check()
 end
 
 keymap.set({'n', 'v'}, ', ', 'gc', { remap = true, desc = 'comment' })
-keymap.set('o', ',  ', 'gcc', { remap = true, desc = 'comment line' })
 
 keymap.set('n', ',~s', toggle_spell_check, { silent = true, desc = 'Toggle spell' })
 keymap.set('n', ',x', '<Nop>', { silent = true, desc = '+Fix' })
