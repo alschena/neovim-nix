@@ -115,6 +115,8 @@ let
     ruff
     # java
     jdt-language-server
+    # zig
+    zls
   ];
 in {
   # This is the neovim derivation
