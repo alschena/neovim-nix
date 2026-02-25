@@ -22,6 +22,8 @@ opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
 opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
 
 opt.spell = true
 opt.spelllang = 'en'
