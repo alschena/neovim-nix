@@ -3,11 +3,11 @@ require('which-key').setup {
   plugins = { presets = { motions = false } },
 }
 vim.keymap.set('n', '<leader>f', '<Nop>', { desc = '+Find' })
-vim.keymap.set('n', '<leader>g', '<Nop>', { desc = '+Git' })
-vim.keymap.set('n', '<leader>g~', '<Nop>', { desc = '+Toggle' })
-vim.keymap.set('n', ',', '<Nop>', { desc = '+Language' })
+vim.keymap.set('n', ',', '<Nop>', { desc = '+Project' })
+vim.keymap.set('n', ',v', '<Nop>', { desc = '+Version control' })
 vim.keymap.set('n', ',d', '<Nop>', { desc = '+Diagnostics' })
-vim.keymap.set('n', ',~', '<Nop>', { desc = '+toggle' })
+vim.keymap.set('n', ',~', '<Nop>', { desc = '+Toggle' })
+vim.keymap.set('n', ',~v', '<Nop>', { desc = '+Version control' })
 vim.keymap.set('n', ',p', '<Nop>', { desc = '+Peek' })
 vim.keymap.set('n', ',w', '<Nop>', { desc = '+Workspace' })
 vim.keymap.set('n', ',t', '<Nop>', { desc = '+Tests' })

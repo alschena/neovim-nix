@@ -17,38 +17,6 @@ keymap.set('n', ']b', vim.cmd.bnext, { silent = true, desc = 'next [b]uffer' })
 keymap.set('n', '[B', vim.cmd.bfirst, { silent = true, desc = 'first [B]uffer' })
 keymap.set('n', ']B', vim.cmd.blast, { silent = true, desc = 'last [B]uffer' })
 
--- Toggle the quickfix list (only opens if it is populated)
-local function toggle_qf_list()
-  local qf_exists = false
-  for _, win in pairs(fn.getwininfo() or {}) do
-    if win['quickfix'] == 1 then
-      qf_exists = true
-    end
-  end
-  if qf_exists == true then
-    vim.cmd.cclose()
-    return
-  end
-  if not vim.tbl_isempty(vim.fn.getqflist()) then
-    vim.cmd.copen()
-  end
-end
-
--- Toggle the location list (only opens if it is populated)
-local function toggle_loc_list()
-  local win_n = vim.api.nvim_get_current_win()
-  if fn.win_gettype(win_n) == 'loclist' then
-    vim.cmd.lclose()
-    return
-  end
-  if not vim.tbl_isempty(vim.fn.getloclist(win_n)) then
-    vim.cmd.lopen()
-  end
-end
-
-keymap.set('n', '<leader>c', toggle_qf_list, { desc = 'toggle quickfix list' })
-keymap.set('n', '<leader>l', toggle_loc_list, { desc = 'toggle location list' })
-
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
   if success then
@@ -104,12 +72,6 @@ keymap.set('n', ']l', lright, { silent = true, desc = 'cycle [l]oclist right' })
 keymap.set('n', '[L', vim.cmd.lfirst, { silent = true, desc = 'first [L]oclist entry' })
 keymap.set('n', ']L', vim.cmd.llast, { silent = true, desc = 'last [L]oclist entry' })
 
--- Resize vertical splits
-keymap.set('n', '<leader>w', '<C-w>', { desc = '+Window (alias <C-w>)' })
-keymap.set('n', '<leader>wQ', function()
-  vim.cmd('fclose!')
-end, { silent = true, desc = '[f]loating windows: [q]uit/close all' })
-
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'switch to normal mode' })
 keymap.set('t', '<C-Esc>', '<Esc>', { desc = 'send Esc to terminal' })
@@ -122,10 +84,6 @@ keymap.set('c', '%%', function()
     return '%%'
   end
 end, { expr = true, desc = "expand to current buffer's directory" })
-
-keymap.set('n', '<leader>n', vim.cmd.tabnew, { desc = 'New tab' })
-keymap.set('n', '<leader>q', vim.cmd.bdelete, { desc = 'Delete buffer' })
-keymap.set('n', '<leader>Q', vim.cmd.tabclose, { desc = 'Close tab' })
 
 local severity = diagnostic.severity
 

@@ -3,9 +3,9 @@ if vim.g.did_load_diffview_plugin then
 end
 vim.g.did_load_diffview_plugin = true
 
-vim.keymap.set('n', '<leader>gfb', function()
+vim.keymap.set('n', ',vfb', function()
   vim.cmd.DiffviewFileHistory(vim.api.nvim_buf_get_name(0))
 end, { desc = 'diffview [g]it [f]ile history (current [b]uffer)' })
-vim.keymap.set('n', '<leader>gfc', vim.cmd.DiffviewFileHistory, { desc = 'diffview [g]it [f]ile history ([c]wd)' })
-vim.keymap.set('n', '<leader>gD', vim.cmd.DiffviewOpen, { desc = '[g]it [d]iffview open' })
-vim.keymap.set('n', '<leader>g~f', vim.cmd.DiffviewToggleFiles, { desc = '[g]it [d]iffview [f]iles [t]oggle' })
+vim.keymap.set('n', ',vfc', vim.cmd.DiffviewFileHistory, { desc = 'diffview [g]it [f]ile history ([c]wd)' })
+vim.keymap.set('n', ',vD', vim.cmd.DiffviewOpen, { desc = '[g]it [d]iffview open' })
+vim.keymap.set('n', ',~vf', vim.cmd.DiffviewToggleFiles, { desc = '[g]it [d]iffview [f]iles [t]oggle' })
