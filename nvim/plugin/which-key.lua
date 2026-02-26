@@ -2,7 +2,6 @@ require('which-key').setup {
   preset = 'helix',
   plugins = { presets = { motions = false } },
 }
-vim.keymap.set('n', '<leader>f', '<Nop>', { desc = '+Find' })
 vim.keymap.set('n', ',', '<Nop>', { desc = '+Project' })
 vim.keymap.set('n', ',v', '<Nop>', { desc = '+Version control' })
 vim.keymap.set('n', ',d', '<Nop>', { desc = '+Diagnostics' })
