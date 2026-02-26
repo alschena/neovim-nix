@@ -5,10 +5,10 @@ local opt = vim.o
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
 -- The default leader is '\'. Some people prefer <space>. Uncomment this if you do, too.
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- vim.g.mapleader = ' '
+-- vim.g.maplocalleader = ' '
 -- Deactivate default space keybindings in normal mode
-vim.keymap.set('n', ' ', '<Nop>')
+-- vim.keymap.set('n', ' ', '<Nop>')
 
 -- See :h <option> to see what the options do
 
