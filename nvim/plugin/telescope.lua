@@ -84,11 +84,11 @@ vim.keymap.set('n', '<Space>l', builtin.loclist, { desc = 'loclist' })
 vim.keymap.set('n', '<Space>"', builtin.registers, { desc = 'registers' })
 vim.keymap.set('n', "<Space>'", builtin.marks, { desc = 'marks' })
 vim.keymap.set('n', '<Space>b', builtin.buffers, { desc = 'buffers' })
-vim.keymap.set('n', '<Space>S', builtin.lsp_document_symbols, { desc = 'lsp document symbols' })
+vim.keymap.set('n', '<Space>s', builtin.lsp_document_symbols, { desc = 'lsp document symbols' })
 vim.keymap.set('n', '<Space>d', builtin.diagnostics, { desc = 'diagnostics' })
 vim.keymap.set('n', '<Space>h', builtin.help_tags, { desc = 'help' })
 vim.keymap.set('n', '<Space>m', builtin.git_status, { desc = 'modified (git status)' })
-vim.keymap.set( 'n', '<Space>s', builtin.lsp_dynamic_workspace_symbols, { desc = 'lsp dynamic workspace symbols' })
+vim.keymap.set( 'n', '<Space>S', builtin.lsp_dynamic_workspace_symbols, { desc = 'lsp dynamic workspace symbols' })
 
 telescope.setup {
   defaults = {
