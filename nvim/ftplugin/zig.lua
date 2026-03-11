@@ -27,14 +27,14 @@ vim.lsp.enable('zls')
 
 
 -- On save: format, fix all, organize imports
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { "*.zig", "*.zon" },
-  callback = function(_)
-    vim.lsp.buf.format()
-    vim.lsp.buf.code_action({
-      context = { only = { "source.fixAll", "source.organizeImports" } },
-      apply = true,
-    })
-  end
-})
-
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   pattern = { "*.zig", "*.zon" },
+--   callback = function(_)
+--     vim.lsp.buf.format()
+--     vim.lsp.buf.code_action({
+--       context = { only = { "source.fixAll", "source.organizeImports" } },
+--       apply = true,
+--     })
+--   end
+-- })
+--
