@@ -7,8 +7,6 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
 local function has_words_before()
   local unpack_ = unpack or table.unpack
   local line, col = unpack_(vim.api.nvim_win_get_cursor(0))
@@ -120,28 +118,6 @@ cmp.setup.filetype('lua', {
   sources = cmp.config.sources {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp', keyword_length = 3 },
-    { name = 'path' },
-  },
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'nvim_lsp_document_symbol', keyword_length = 3 },
-    { name = 'cmdline_history' },
-  },
-  view = {
-    entries = { name = 'wildmenu', separator = '|' },
-  },
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources {
-    { name = 'cmdline' },
-    { name = 'cmdline_history' },
     { name = 'path' },
   },
 })

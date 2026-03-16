@@ -1,8 +1,5 @@
 vim.loader.enable()
 
-local cmd = vim.cmd
-local opt = vim.o
-
 -- <leader> key. Defaults to `\`. Some people prefer space.
 -- The default leader is '\'. Some people prefer <space>. Uncomment this if you do, too.
 -- vim.g.mapleader = ' '
@@ -13,35 +10,38 @@ local opt = vim.o
 -- See :h <option> to see what the options do
 
 -- Search down into subfolders
-opt.path = vim.o.path .. '**'
+vim.o.path = vim.o.path .. '**'
 
-opt.number = true
-opt.relativenumber = true
-opt.cursorline = true
-opt.lazyredraw = true
-opt.showmatch = true -- Highlight matching parentheses, etc
-opt.incsearch = true
-opt.hlsearch = true
-opt.ignorecase = true
-opt.smartcase = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.cursorline = true
+vim.o.lazyredraw = true
+vim.o.showmatch = true -- Highlight matching parentheses, etc
+vim.o.incsearch = true
+vim.o.hlsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-opt.spell = true
-opt.spelllang = 'en'
+vim.o.spell = true
+vim.o.spelllang = 'en'
 
-opt.expandtab = true
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-opt.foldenable = true
-opt.history = 2000
-opt.nrformats = 'bin,hex' -- 'octal'
-opt.undofile = true
-opt.splitright = true
-opt.splitbelow = true
-opt.cmdheight = 0
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.foldenable = true
+vim.o.history = 2000
+vim.o.nrformats = 'bin,hex' -- 'octal'
+vim.o.undofile = true
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.cmdheight = 0
 
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-opt.colorcolumn = '120'
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.colorcolumn = '120'
+
+vim.o.complete = '.,w,b,kpell'
+vim.o.completeopt = 'menuone,noselect,fuzzy,nosort'
 
 -- Configure Neovim diagnostic messages
 
@@ -92,8 +92,8 @@ vim.diagnostic.config {
 }
 
 -- Native plugins
-cmd.filetype('plugin', 'indent', 'on')
-cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
+vim.cmd.filetype('plugin', 'indent', 'on')
+vim.cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
