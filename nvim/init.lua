@@ -9,6 +9,8 @@ vim.loader.enable()
 
 -- See :h <option> to see what the options do
 
+vim.g.have_nerd_font = true
+
 -- Search down into subfolders
 vim.o.path = vim.o.path .. '**'
 
@@ -42,6 +44,20 @@ vim.o.colorcolumn = '120'
 
 vim.o.complete = '.,w,b,kpell'
 vim.o.completeopt = 'menuone,noselect,fuzzy,nosort'
+
+vim.o.breakindent = true
+vim.o.signcolumn = 'yes'
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.o.inccommand = 'split'
+vim.o.scrolloff = 10
+vim.o.confirm = true
+vim.o.mouse = 'a'
+vim.o.showmode = false
+
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 -- Configure Neovim diagnostic messages
 
