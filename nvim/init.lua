@@ -15,7 +15,6 @@ vim.g.have_nerd_font = true
 vim.o.path = vim.o.path .. '**'
 
 vim.o.number = true
-vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.lazyredraw = true
 vim.o.showmatch = true -- Highlight matching parentheses, etc
@@ -42,8 +41,9 @@ vim.o.cmdheight = 0
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.colorcolumn = '120'
 
-vim.o.complete = '.,w,b,kpell'
-vim.o.completeopt = 'menuone,noselect,fuzzy,nosort'
+vim.o.autocomplete = true
+vim.o.complete = 't^5,o^5,.^2,w^2,b^2,kspell^2'
+vim.o.completeopt = 'menuone,noselect,nearest,popup'
 
 vim.o.breakindent = true
 vim.o.signcolumn = 'yes'
