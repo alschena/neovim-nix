@@ -1,6 +1,6 @@
-vim.lsp.start {
-  name = 'nixd',
+return {
   cmd = { 'nixd' },
+  filetypes = {'nix'},
   root_markers = {
     'flake.nix',
     'default.nix',

@@ -3,8 +3,6 @@ if vim.g.did_load_java_configuration then
 end
 vim.g.did_load_java_configuration = true
 
-vim.lsp.enable('jdtls')
-
 -- Traverse back the file system tree from the current path and create a test file, mimicking the tree traversal under the test path.
 local create_test_file = function ()
   local root = vim.fs.root(0, 'pom.xml')

@@ -1,6 +1,6 @@
-vim.lsp.start {
-  name = 'luals',
+return {
   cmd = { 'lua-language-server' },
+  filetypes = {'lua'},
   root_markers = {
     '.luarc.json',
     '.luarc.jsonc',

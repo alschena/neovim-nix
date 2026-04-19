@@ -88,23 +88,10 @@ with lib;
 
       buildPhase = ''
         mkdir -p $out/nvim
-        mkdir -p $out/lua
         rm init.lua
       '';
 
       installPhase = ''
-        # Copy nvim/lua only if it exists
-        if [ -d "lua" ]; then
-          cp -r lua $out/lua
-          rm -r lua
-        fi
-
-        # Copy nvim/after only if it exists
-        if [ -d "after" ]; then
-            cp -r after $out/after
-            rm -r after
-        fi
-        # Copy rest of nvim/ subdirectories only if they exist
         if [ ! -z "$(ls -A)" ]; then
             cp -r -- * $out/nvim
         fi

@@ -1,11 +1,3 @@
---- From [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/lsp/ltex.lua)
-
-if vim.g.did_load_grammar_language_server then
-  return
-end
-vim.g.did_load_grammar_language_server = true
-
-
 local language_id_mapping = {
   bib = 'bibtex',
   plaintex = 'tex',
@@ -45,17 +37,14 @@ local function get_language_id(_, filetype)
 end
 local enabled_ids = {}
 do
-  local enabled_keys = {}
+  -- local enabled_keys = {}
   for _, ft in ipairs(filetypes) do
     local id = get_language_id({}, ft)
-    if not enabled_keys[id] then
-      enabled_keys[id] = true
-      table.insert(enabled_ids, id)
-    end
+    table.insert(enabled_ids, id)
   end
 end
 
-vim.lsp.config['ltex-ls'] = {
+return {
   cmd = { 'ltex-ls' },
   filetypes = filetypes,
   root_markers = { '.git' },
@@ -66,4 +55,3 @@ vim.lsp.config['ltex-ls'] = {
     },
   },
 }
-vim.lsp.enable('ltex-ls')
