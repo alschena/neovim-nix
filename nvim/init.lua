@@ -42,7 +42,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.colorcolumn = '120'
 
 vim.o.autocomplete = true
-vim.o.complete = 't^5,o^5,.^2,w^2,b^2,kspell^2'
+vim.o.complete = 'o'
 vim.o.completeopt = 'menuone,noselect,nearest,popup'
 
 vim.o.breakindent = true
