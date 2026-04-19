@@ -1,27 +1,16 @@
-vim.bo.comments = ':---,:--'
-
-local lua_ls_cmd = 'lua-language-server'
-
--- Check if lua-language-server is available
-if vim.fn.executable(lua_ls_cmd) ~= 1 then
-  return
-end
-
-local root_files = {
-  '.luarc.json',
-  '.luarc.jsonc',
-  '.luacheckrc',
-  '.stylua.toml',
-  'stylua.toml',
-  'selene.toml',
-  'selene.yml',
-  '.git',
-}
-
 vim.lsp.start {
   name = 'luals',
-  cmd = { lua_ls_cmd },
-  root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
+  cmd = { 'lua-language-server' },
+  root_markers = {
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+    'selene.toml',
+    'selene.yml',
+    '.git',
+  },
   settings = {
     Lua = {
       runtime = {
@@ -51,12 +40,4 @@ vim.lsp.start {
       },
     },
   },
-  on_attach = function(client, bufnr)
-    vim.lsp.completion.enable(true, client.id, bufnr, {
-      autotrigger = true,
-      convert = function(item)
-        return { abbr = item.label:gsub('%b()', '') }
-      end,
-    })
-  end,
 }
