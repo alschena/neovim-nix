@@ -3,7 +3,4 @@ if vim.g.did_load_commands_plugin then
 end
 vim.g.did_load_commands_plugin = true
 
-local api = vim.api
-
--- delete current buffer
-api.nvim_create_user_command('Q', 'bd %', {})
+vim.api.nvim_create_user_command('Comment', '<line1>,<line2> norm gcc', {range = true})
