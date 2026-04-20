@@ -15,6 +15,7 @@ vim.g.have_nerd_font = true
 vim.o.path = vim.o.path .. '**'
 
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.lazyredraw = true
 vim.o.showmatch = true -- Highlight matching parentheses, etc
