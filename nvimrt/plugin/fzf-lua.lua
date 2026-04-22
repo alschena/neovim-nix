@@ -1,2 +1,8 @@
 vim.keymap.set('n', '<leader>s', ':FzfLua <CR>', { desc = 'find finder' })
 vim.keymap.set('n', '<leader>f', ':FzfLua files<CR>', { desc = 'find files' })
+vim.keymap.set('n', '<leader>d', ':FzfLua diagnostics_document<CR>', { desc = 'find files' })
+vim.keymap.set('n', '<leader>D', ':FzfLua diagnostics_workspace<CR>', { desc = 'find files' })
+vim.keymap.set('n', '<leader>/', ':FzfLua live_grep<CR>', { desc = 'find files' })
+vim.keymap.set('n', '<leader>q', ':FzfLua quickfix<CR>', { desc = 'find files' })
+vim.keymap.set('n', '<leader>l', ':FzfLua loclist<CR>', { desc = 'find files' })
+vim.keymap.set('n', '<leader>b', ':FzfLua buffers<CR>', { desc = 'find files' })
