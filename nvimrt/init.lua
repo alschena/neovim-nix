@@ -2,10 +2,10 @@ vim.loader.enable()
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
 -- The default leader is '\'. Some people prefer <space>. Uncomment this if you do, too.
--- vim.g.mapleader = ' '
--- vim.g.maplocalleader = ' '
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 -- Deactivate default space keybindings in normal mode
--- vim.keymap.set('n', ' ', '<Nop>')
+vim.keymap.set('n', ' ', '<Nop>')
 
 -- See :h <option> to see what the options do
 
@@ -112,9 +112,6 @@ vim.diagnostic.config {
 vim.cmd.filetype('plugin', 'indent', 'on')
 vim.cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
--- let sqlite.lua (which some plugins depend on) know where to find sqlite
-vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
-
 -- LSP
 vim.lsp.enable({
   'ltex-ls',
@@ -123,5 +120,4 @@ vim.lsp.enable({
   'zls',
   'ty',
   'ruff',
-  'jdtls',
 })

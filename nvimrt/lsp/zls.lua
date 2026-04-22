@@ -1,6 +1,6 @@
 return {
   cmd = { 'zls' },
-  filetypes = { 'zig', 'zon' },
+  filetypes = { 'zig' },
   root_markers = { 'build.zig' },
   -- There are two ways to set config options:
   --   - edit your `zls.json` that applies to any editor that uses ZLS
