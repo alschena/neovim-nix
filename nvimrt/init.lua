@@ -43,7 +43,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.colorcolumn = '120'
 
 vim.o.autocomplete = true
-vim.o.complete = 'o'
+vim.o.complete = 'o^12'
 vim.o.completeopt = 'menuone,noselect,nearest,popup'
 
 vim.o.breakindent = true

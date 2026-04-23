@@ -6,4 +6,4 @@ vim.keymap.set('n', '<leader>/', ':FzfLua live_grep<CR>', { desc = 'fuzzy live g
 vim.keymap.set('n', '<leader>q', ':FzfLua quickfix<CR>', { desc = 'fuzzy quickfix' })
 vim.keymap.set('n', '<leader>l', ':FzfLua loclist<CR>', { desc = 'fuzzy loclist' })
 vim.keymap.set('n', '<leader>b', ':FzfLua buffers<CR>', { desc = 'fuzzy buffers' })
-vim.keymap.set('n', '<leader>s', ':FzfLua lsp_live_workspace_symbols<CR>', { desc = 'fuzzy workspace symbols' })
+vim.keymap.set('n', '<leader>w', ':FzfLua lsp_live_workspace_symbols<CR>', { desc = 'fuzzy workspace symbols' })
