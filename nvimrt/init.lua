@@ -113,6 +113,15 @@ vim.cmd.filetype('plugin', 'indent', 'on')
 vim.cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- LSP
+
+vim.lsp.config('*', {
+  capabilities = {
+    general = {
+      positionEncodings = { 'uft-8' },
+    },
+  },
+})
+
 vim.lsp.enable({
   'ltex-ls',
   'luals',

@@ -1,4 +1,9 @@
 return {
-  cmd = 'ty',
+  cmd = { 'ty', 'server' },
   filetypes = {'python'},
+  root_markers = {
+    '.git',
+    'uv.lock',
+    'pyproject.toml',
+  },
 }
