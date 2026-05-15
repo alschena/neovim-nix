@@ -96,44 +96,9 @@ keymap.set('n', '?', '?\\v', { desc = 'very magic backward search' })
 keymap.set('v', '/', '/\\v%V', { desc = 'very magic search visual search' })
 keymap.set('v', '?', '?\\v%V', { desc = 'very magic backward visual search' })
 keymap.set('v', 's', ':s/\\v%V', { desc = 'very magic substitution in visual' })
-vim.keymap.set("n", 's', function()
-  vim.ui.select({'line', 'buffer','range', 'last visual'},
-    {},
-    function(range)
-      local query = ''
-
-      if range == nil then
-        return
-      elseif range == 'line' then
-        query = '.'
-      elseif range == 'buffer' then
-        query = '%'
-      elseif range == 'last visual' then
-        query = "'<,'>"
-      elseif range == 'custom' then
-        vim.ui.input({prompt='start, end: '}, function(input) query = input end)
-      end
-
-      vim.ui.input({prompt='old: '}, function(old)
-        if (range == 'last visual') then
-          query = query .. 's/\\v%V' .. old .. '/'
-        else
-          query = query .. 's/\\v' .. old .. '/'
-        end
-      end)
-
-      vim.ui.input({prompt='new: '}, function(new)
-        query = query .. new .. '/'
-      end)
-
-      vim.ui.input({prompt='flags: '}, function(flags)
-        query = query .. flags
-      end)
-
-      vim.cmd(query)
-    end
-  )
-end)
+keymap.set('n', 's', '<Nop>', { desc = 'very magic default substitutions' })
+keymap.set('n', 'sb', ':%s/\\v', { desc = 'very magic buffer substitution' })
+keymap.set('n', 'sl', ':s/\\v', { desc = 'very magic line substitution' })
 
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
