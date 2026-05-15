@@ -91,6 +91,21 @@ keymap.set('n', ',x', '<Nop>', { silent = true, desc = '+Fix' })
 keymap.set('n', ',xs', 'z=', { silent = true, desc = 'Fix syntax' })
 keymap.set('n', ',~z', 'zi', { silent = true, desc = 'Toggle folds' })
 
+keymap.set('n', '/', '/\\v', { desc = 'very magic search' })
+keymap.set('n', '?', '?\\v', { desc = 'very magic backward search' })
+keymap.set('v', '/', '/\\v%V', { desc = 'very magic search visual search' })
+keymap.set('v', '?', '?\\v%V', { desc = 'very magic backward visual search' })
+keymap.set('v', 's', ':s/\\v%V', { desc = 'very magic substitution in visual' })
+vim.keymap.set("n", "s", function()
+  local input = vim.fn.input("Substitute by range/old/new/flags: ")
+  local rng, old, new, flags = input:match("^(.-)/(.-)/(.-)/(.*)$")
+  if not rng or not old or not new or not flags then
+    print("Example: %/old/new/g")
+    return
+  end
+  vim.cmd(("%ss/\\v%s/%s/%s"):format(rng, old, new, flags))
+end)
+
 keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
 keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'move DOWN [f]ull-page and center' })
