@@ -1,0 +1,6 @@
+require('mini.pick').setup()
+require('mini.extra').setup()
+vim.keymap.set('n', '<leader>s', '<CMD>Pick', { desc = 'fuzzy finder' })
+vim.keymap.set('n', '<leader>f', '<CMD>Pick files<CR>', { desc = 'fuzzy files' })
+vim.keymap.set('n', '<leader>b', '<CMD>Pick buffers<CR>', { desc = 'fuzzy files' })
+vim.keymap.set('n', '<leader>/', '<CMD> Pick grep_live<CR>', { desc = 'fuzzy live grep' })

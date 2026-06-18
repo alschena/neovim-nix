@@ -4,9 +4,9 @@ let
       oil-nvim
       vim-fugitive
       gitsigns-nvim
-      fzf-lua
+      mini-pick
+      mini-extra
       nvim-unception
-      nvim-surround
       nvim-dap
       which-key-nvim
       sonarlint-nvim
