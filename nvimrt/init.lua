@@ -57,9 +57,15 @@ end, { expr = true, desc = "expand to current buffer's directory" })
 
 vim.keymap.set('n', 'grs', vim.lsp.buf.workspace_symbol, {desc = 'load workspace/symbols to quickfix list' })
 vim.keymap.set('n', 'grd', vim.lsp.buf.workspace_diagnostics, {desc = 'load workspace/diagnostics to quickfix list' })
+
 vim.keymap.set('n', 'grl', vim.diagnostic.open_float, {desc = 'diagnostics floating window' })
 vim.keymap.set('n', 'grd', vim.diagnostic.setloclist, {desc = 'load diagnostics to loclist' })
 vim.keymap.set('n', 'grD', vim.diagnostic.setqflist, {desc = 'load diagnostics to quickfixlist' })
+
+vim.api.nvim_create_user_command('Ldiagnostics', vim.diagnostic.setloclist, {})
+vim.api.nvim_create_user_command('Cdiagnostics', vim.diagnostic.setqflist, {})
+vim.api.nvim_create_user_command('ShowDiagnostic', vim.diagnostic.open_float, {})
+
 vim.keymap.set('n', 'g~d', function() vim.diagnostics.enable(not vim.diagnostic.is_enabled()) end, {desc = 'toggle diagnostics' })
 vim.keymap.set('n', 'g~s', function() vim.o.spell = not vim.o.spell end, {desc = 'toggle diagnostics' })
 
