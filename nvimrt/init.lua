@@ -27,7 +27,6 @@ vim.o.nrformats = 'bin,hex' -- 'octal'
 vim.o.undofile = true
 vim.o.splitright = true
 vim.o.splitbelow = true
-vim.o.colorcolumn = '120'
 vim.o.autocomplete = false
 vim.o.complete = 'o^12'
 vim.o.completeopt = 'menuone,noselect,nearest,popup'
@@ -58,9 +57,9 @@ end, { expr = true, desc = "expand to current buffer's directory" })
 
 vim.keymap.set('n', 'grs', vim.lsp.buf.workspace_symbol, {desc = 'load workspace/symbols to quickfix list' })
 vim.keymap.set('n', 'grd', vim.lsp.buf.workspace_diagnostics, {desc = 'load workspace/diagnostics to quickfix list' })
-vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = 'diagnostics floating window' })
-vim.keymap.set('n', 'gd', vim.diagnostic.setloclist, {desc = 'load diagnostics to loclist' })
-vim.keymap.set('n', 'gD', vim.diagnostic.setqflist, {desc = 'load diagnostics to quickfixlist' })
+vim.keymap.set('n', 'grl', vim.diagnostic.open_float, {desc = 'diagnostics floating window' })
+vim.keymap.set('n', 'grd', vim.diagnostic.setloclist, {desc = 'load diagnostics to loclist' })
+vim.keymap.set('n', 'grD', vim.diagnostic.setqflist, {desc = 'load diagnostics to quickfixlist' })
 vim.keymap.set('n', 'g~d', function() vim.diagnostics.enable(not vim.diagnostic.is_enabled()) end, {desc = 'toggle diagnostics' })
 vim.keymap.set('n', 'g~s', function() vim.o.spell = not vim.o.spell end, {desc = 'toggle diagnostics' })
 
