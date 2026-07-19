@@ -42,7 +42,7 @@ vim.o.mouse = 'a'
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 vim.cmd.filetype('plugin', 'indent', 'on')
-vim.cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
+vim.cmd.packadd('cfilter')
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'switch to normal mode' })
 vim.keymap.set('t', '<C-Esc>', '<Esc>', { desc = 'send Esc to terminal' })
