@@ -60,8 +60,8 @@ vim.keymap.set('n', 'grl', vim.diagnostic.open_float, {desc = 'diagnostics float
 vim.keymap.set('n', 'grd', vim.diagnostic.setloclist, {desc = 'load diagnostics to loclist' })
 vim.keymap.set('n', 'grD', vim.diagnostic.setqflist, {desc = 'load diagnostics to quickfixlist' })
 
-vim.api.nvim_create_user_command('Ldiagnostics', vim.diagnostic.setloclist, {})
-vim.api.nvim_create_user_command('Cdiagnostics', vim.diagnostic.setqflist, {})
+vim.api.nvim_create_user_command('CopyDiagnosticsToLocationList', vim.diagnostic.setloclist, {})
+vim.api.nvim_create_user_command('CopyDiagnosticsToQuickfixList', vim.diagnostic.setqflist, {})
 vim.api.nvim_create_user_command('ShowDiagnostic', vim.diagnostic.open_float, {})
 
 vim.keymap.set('n', 'g~d', function() vim.diagnostics.enable(not vim.diagnostic.is_enabled()) end, {desc = 'toggle diagnostics' })
