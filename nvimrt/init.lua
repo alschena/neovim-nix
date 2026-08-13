@@ -1,4 +1,5 @@
 vim.loader.enable()
+require('vim._core.ui2').enable()
 
 vim.g.have_nerd_font = true
 vim.g.mapleader = ' '
@@ -6,11 +7,13 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', ' ', '<Nop>')
 
 vim.o.path = vim.o.path .. '**'
-vim.o.number = true
-vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.lazyredraw = true
+vim.o.laststatus = 3
+vim.o.shortmess = ''
 vim.o.showmatch = true
+vim.o.belloff = ''
+vim.o.visualbell = true
 vim.o.incsearch = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true
@@ -25,11 +28,12 @@ vim.o.foldenable = true
 vim.o.history = 2000
 vim.o.nrformats = 'bin,hex' -- 'octal'
 vim.o.undofile = true
+vim.o.wildmode = 'longest:full'
 vim.o.autocomplete = false
 vim.o.complete = 'o^12'
 vim.o.completeopt = 'menuone,noselect,nearest,popup'
-vim.o.breakindent = true
-vim.o.signcolumn = 'yes'
+vim.o.showbreak = '> '
+vim.o.breakindentopt = 'sbr'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.inccommand = 'split'
@@ -72,9 +76,6 @@ vim.keymap.set('n', 'grq', vim.diagnostic.setqflist, {desc = 'load diagnostics t
 
 vim.api.nvim_create_user_command('CopyDiagnosticsToLocationList', vim.diagnostic.setloclist, {})
 vim.api.nvim_create_user_command('CopyDiagnosticsToQuickfixList', vim.diagnostic.setqflist, {})
-
-vim.keymap.set('n', 'g~d', function() vim.diagnostics.enable(not vim.diagnostic.is_enabled()) end, {desc = 'toggle diagnostics' })
-vim.keymap.set('n', 'g~s', function() vim.o.spell = not vim.o.spell end, {desc = 'toggle diagnostics' })
 
 vim.keymap.set('n', '/', '/\\v', { desc = 'very magic search' })
 vim.keymap.set('n', '?', '?\\v', { desc = 'very magic backward search' })
