@@ -8,6 +8,7 @@ vim.keymap.set('n', ' ', '<Nop>')
 
 vim.o.path = vim.o.path .. '**'
 vim.o.cursorline = true
+vim.o.signcolumn = 'yes'
 vim.o.lazyredraw = true
 vim.o.laststatus = 3
 vim.o.shortmess = ''
