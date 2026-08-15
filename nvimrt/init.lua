@@ -31,6 +31,7 @@ vim.o.nrformats = 'bin,hex' -- 'octal'
 vim.o.undofile = true
 vim.o.wildmode = 'longest:full'
 vim.o.winborder = 'single'
+vim.o.pumborder = 'single'
 vim.o.autocomplete = false
 vim.o.complete = 'o^12'
 vim.o.completeopt = 'menuone,noselect,nearest,popup'
