@@ -61,6 +61,7 @@ vim.cmd.filetype('plugin', 'indent', 'on')
 vim.cmd.packadd('cfilter')
 
 vim.keymap.set({ 'n' }, 'J', '<nop>', {} )
+vim.keymap.set({ 'n' }, 'S', '<nop>', {} )
 vim.keymap.set({ 'n' }, 'JJ', '<C-w>j', {} )
 vim.keymap.set({ 'n' }, 'JK', '<C-w>k', {} )
 vim.keymap.set({ 'n' }, 'JL', '<C-w>l', {} )
