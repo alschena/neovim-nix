@@ -38,7 +38,7 @@ vim.o.completeopt = 'menuone,noselect,nearest,popup'
 vim.o.showbreak = '> '
 vim.o.breakindentopt = 'sbr'
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 250
 vim.o.inccommand = 'split'
 vim.o.scrolloff = 10
 vim.o.confirm = true
@@ -60,6 +60,15 @@ vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 vim.cmd.filetype('plugin', 'indent', 'on')
 vim.cmd.packadd('cfilter')
 
+vim.keymap.set({ 'n' }, 'JJ', '<C-w>j', {} )
+vim.keymap.set({ 'n' }, 'JK', '<C-w>k', {} )
+vim.keymap.set({ 'n' }, 'JL', '<C-w>l', {} )
+vim.keymap.set({ 'n' }, 'JH', '<C-w>h', {} )
+vim.keymap.set({ 'n' }, 'JO', '<C-w>o', {} )
+vim.keymap.set({ 'n' }, 'JD', '<C-w>d', {} )
+
+vim.keymap.set({ 'i', 'o' }, 'jk', '<Esc>', { desc = 'switch to normal mode' })
+vim.keymap.set('t', 'jk', '<C-\\><C-n>', { desc = 'switch to normal mode' })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'switch to normal mode' })
 vim.keymap.set('t', '<C-Esc>', '<Esc>', { desc = 'send Esc to terminal' })
 
