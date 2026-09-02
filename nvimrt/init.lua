@@ -7,6 +7,7 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', ' ', '<Nop>')
 
 vim.o.path = vim.o.path .. '**'
+vim.o.number = true
 vim.o.cursorline = true
 vim.o.signcolumn = 'yes'
 vim.o.lazyredraw = true
@@ -87,9 +88,6 @@ vim.keymap.set('n', 'grd', vim.lsp.buf.workspace_diagnostics, {desc = 'load work
 
 vim.keymap.set('n', 'grl', vim.diagnostic.setloclist, {desc = 'load diagnostics to loclist' })
 vim.keymap.set('n', 'grq', vim.diagnostic.setqflist, {desc = 'load diagnostics to quickfixlist' })
-
-vim.api.nvim_create_user_command('CopyDiagnosticsToLocationList', vim.diagnostic.setloclist, {})
-vim.api.nvim_create_user_command('CopyDiagnosticsToQuickfixList', vim.diagnostic.setqflist, {})
 
 vim.keymap.set('n', '/', '/\\v', { desc = 'very magic search' })
 vim.keymap.set('n', '?', '?\\v', { desc = 'very magic backward search' })
